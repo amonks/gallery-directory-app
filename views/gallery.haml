@@ -1,18 +1,28 @@
 %h1
 	= @gallery.title
 %h2 info
-%h3 address
-= @gallery.address
-- if @gallery.url
-	%a{:href => "#{@gallery.url}"} 
-		%h3 website
-%h3 phone number
-= @gallery.phone
-%h3 operator
-= @gallery.owner
-%h3 accessibility
-%p
-	= @gallery.accessibility
+%dl 
+	%dt address
+	%dd 
+		= @gallery.address
+	- if @gallery.url
+		%a{:href => "#{@gallery.url}"} 
+			%dt website
+			%dd 
+				= @gallery.url
+	%dt ical calendar
+	%dd 
+		%a{:href => "shows/ics"} 
+			link
+	%dt phone number
+	%dd 
+		= @gallery.phone
+	%dt operator
+	%dd 
+		= @gallery.owner
+	%dt accessibility
+	%dd 
+		= @gallery.accessibility
 - @shows = Show.all(:gallery_gallery_id => @gallery.gallery_id)
 = haml :shows
 %h2 ical calendar
