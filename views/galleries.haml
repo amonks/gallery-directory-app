@@ -3,3 +3,6 @@
 	%li 
 		%a{:href => "/galleries/#{gallery.gallery_id}/html"} 
 			= gallery.title
+		&bull;
+		%a{:href => href="/galleries/#{gallery.gallery_id}/ics"}
+			ical link
