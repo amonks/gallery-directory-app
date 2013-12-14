@@ -2,16 +2,16 @@
 - @shows.each do |show|
 	- @show = show
 	%li 
-%a{:href => "/shows/#{@show.show_id}/html"} 
-	= @show.title
-	%small 
-		= @show.startdate
-		at
-		%a{:href => "/galleries/#{@show.gallery_gallery_id}/html"} 
-			= Gallery.get(@show.gallery_gallery_id).title
-		&bull;
-		- unless @show.url == nil
-			%a{:href => "#{@show.url}"} 
-				website
+		%a{:href => "/shows/#{@show.show_id}/html"} 
+			= @show.title
+		%small 
+			= @show.startdate
+			at
+			%a{:href => "/galleries/#{@show.gallery_gallery_id}/html"} 
+				= Gallery.get(@show.gallery_gallery_id).title
+			&bull;
+			- unless @show.url == nil
+				%a{:href => "#{@show.url}"} 
+					website
 %a{:href => "ics"} 
 	ical calendar of above shows
