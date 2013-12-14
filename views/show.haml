@@ -6,5 +6,5 @@
 	%a{:href => "/galleries/#{@show.gallery_gallery_id}/html"} 
 		= Gallery.get(@show.gallery_gallery_id).title
 - unless @show.url == nil
-		%a{:href => "#{@show.url}"} 
-			website
+	%a{:href => "#{@show.url}"} 
+		website
