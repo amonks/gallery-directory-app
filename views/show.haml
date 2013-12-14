@@ -1,6 +1,8 @@
 %form#update-gallery 
 	%h3 title
-	%input{:type => "text", :name=>"title", :id=>"update-title", :value=> "#{@show.title}"}
+	%h4 gallery
+	%a{:href => "/galleries/#{@show.gallery_gallery_id}/html"} 
+		= Gallery.get(@show.gallery_gallery_id).title%input{:type => "text", :name=>"title", :id=>"update-title", :value=> "#{@show.title}"}
 	%h4 start date
 	%input{:type => "text", :name=>"startdate", :id=>"update-startdate", :value => "#{@show.startdate}"}
 	%h4 end date
@@ -12,8 +14,6 @@
 	%input{:type => "curator", :name=>"curator", :id=>"update-curator", :value => "#{@show.curator}"}
 	%h4 artist
 	%input{:type => "artist", :name=>"artist", :id=>"update-artist", :value => "#{@show.artist}"}
-	%a{:href => "/galleries/#{@show.gallery_gallery_id}/html"} 
-		= Gallery.get(@show.gallery_gallery_id).title
 	%h4 url
 	%input{:type => "text", :name=>"url", :id=>"update-url", :value=>"#{@show.url}"}
 	%input{:type => "submit", :id=> "new-submit"}
