@@ -62,12 +62,13 @@ end
 
 
 # Route to show all Galleries, ordered like a blog
-get '/galleries' do
-  content_type :json
-  @galleries = Gallery.all
-  @galleries.to_json
+["/galleries", "/galleries/json"].each do |path|
+  get path do
+    content_type :json
+    @galleries = Gallery.all
+    @galleries.to_json
+  end
 end
-
 
 # Route to show all Galleries, ordered like a blog
 get '/galleries/html' do
@@ -97,14 +98,16 @@ post '/galleries' do
 end
 
 # READ: Route to show shows from a specific Gallery based on its `id`
-get '/galleries/:gallery_id/shows' do
-  content_type :json
-  @gallery = Gallery.get(params[:gallery_id].to_i)
-  if @gallery
-    @shows = Show.all(:gallery_gallery_id => @gallery.gallery_id)
-    @shows.to_json
-  else
-    halt 404
+["/:gallery_id/shows", "/:gallery_id/shows/json"].each do |path|
+  get path do
+    content_type :json
+    @gallery = Gallery.get(params[:gallery_id].to_i)
+    if @gallery
+      @shows = Show.all(:gallery_gallery_id => @gallery.gallery_id)
+      @shows.to_json
+    else
+      halt 404
+    end
   end
 end
 
@@ -133,13 +136,15 @@ get '/galleries/:gallery_id/ics' do
 end
 
 # READ: Route to show a specific Gallery based on its `id`
-get '/galleries/:gallery_id' do
-  content_type :json
-  @gallery = Gallery.get(params[:gallery_id].to_i)
-  if @gallery
-    @gallery.to_json
-  else
-    halt 404
+["/galleries/:gallery_id", "/galleries/:gallery_id/json"].each do |path|
+  get path do
+    content_type :json
+    @gallery = Gallery.get(params[:gallery_id].to_i)
+    if @gallery
+      @gallery.to_json
+    else
+      halt 404
+    end
   end
 end
 
@@ -190,11 +195,13 @@ end
 
 
 # Route to show all Shows, ordered like a blog
-get '/shows' do
-  content_type :json
-  @shows = Show.all(:order => :show_id)
+["/shows", "/shows/json"].each do |path|
+  get path do
+    content_type :json
+    @shows = Show.all(:order => :show_id)
 
-  @shows.to_json
+    @shows.to_json
+  end
 end
 
 
@@ -236,14 +243,16 @@ post 'galleries/:gallery_id/shows' do
 end
 
 # READ: Route to show a specific Show based on its `id`
-get '/shows/:show_id' do
-  content_type :json
-  @show = Show.get(params[:show_id].to_i)
-  puts params[:show_id]
-  if @show
-    @show.to_json
-  else
-    halt 404
+["/shows/:show_id", "/shows/:show_id/json"].each do |path|
+  get path do
+    content_type :json
+    @show = Show.get(params[:show_id].to_i)
+    puts params[:show_id]
+    if @show
+      @show.to_json
+    else
+      halt 404
+    end
   end
 end
 
