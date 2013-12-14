@@ -22,12 +22,3 @@
 	%li 
 		%a{:href => "http://github.com/amonks/nebula.im"} 
 			Github
-
-
-<ul class="nav nav-pills nav-stacked">
-{% for post in site.posts %}
-	<li class="{{post.group}}" dateTime="{{post.date}}">
-		<a href="{{ post.url }}" title="{{ post.date | date: "%-d %B %Y" }}"><time dateTime="{{post.date}}">{{ post.title }}</time></a>
-	</li>
-{% endfor %}
-</ul>
