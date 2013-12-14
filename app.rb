@@ -56,9 +56,24 @@ DataMapper.finalize
 # Tell DataMapper to update the database according to the definitions above.
 DataMapper.auto_upgrade!
 
+# root
 get '/' do
-  redirect '/galleries/html'
+  @title = "nebula.im"
+  haml :home
 end
+
+
+get '/api/html' do
+  @title = "Api Docs"
+  haml :api_docs
+end
+
+get '/api/json' do
+  content_type :json
+  File.read('./views/api.json')
+end
+
+
 
 
 # Route to show all Galleries, ordered like a blog
