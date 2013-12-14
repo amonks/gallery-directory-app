@@ -1,27 +1,21 @@
 %form#update-gallery 
 	%h3 title
-	%input{:type => "text", :name=>"title", :id=>"update-title"}
-		= @show.title
+	%input{:type => "text", :name=>"title", :id=>"update-title", :value=> "#{@show.title}"}
 	%h4 start date
-	%input{:type => "text", :name=>"startdate", :id=>"update-startdate"}
-		= @show.startdate
+	%input{:type => "text", :name=>"startdate", :id=>"update-startdate", :value => "#{@show.startdate}"}
 	%h4 end date
-	%input{:type => "text", :name=>"enddate", :id=>"update-enddate"}
-		= @show.enddate
+	%input{:type => "text", :name=>"enddate", :id=>"update-enddate", :value => "#{@show.enddate}"}
 	%h4 description
-	%input{:type => "text", :name=>"description", :id=>"update-description"}
+	%textarea{:name=>"description", :id=>"update-description"}
 		= @show.description
 	%h4 curator
-	%input{:type => "curator", :name=>"curator", :id=>"update-curator"}
-		= @show.curator
+	%input{:type => "curator", :name=>"curator", :id=>"update-curator", :value => "#{@show.curator}"}
 	%h4 artist
-	%input{:type => "artist", :name=>"artist", :id=>"update-artist"}
-		= @show.artist
+	%input{:type => "artist", :name=>"artist", :id=>"update-artist", :value => "#{@show.artist}"}
 	%a{:href => "/galleries/#{@show.gallery_gallery_id}/html"} 
 		= Gallery.get(@show.gallery_gallery_id).title
 	%h4 url
-	%input{:type => "text", :name=>"url", :id=>"update-url"}
-		= @show.url
+	%input{:type => "text", :name=>"url", :id=>"update-url", :value=>"#{@show.url}"}
 	%input{:type => "submit", :id=> "new-submit"}
 :javascript
 	$(document).ready(function () {
