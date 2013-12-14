@@ -1,12 +1,10 @@
-%h2
-	%a{:href => "/shows/#{@show.show_id}/html"} 
-		= @show.title
-%p 
+%a{:href => "/shows/#{@show.show_id}/html"} 
+	= @show.title
+%small 
 	= @show.startdate
 	at
 	%a{:href => "/galleries/#{@show.gallery_gallery_id}/html"} 
 		= Gallery.get(@show.gallery_gallery_id).title
 - unless @show.url == nil
-	%p 
 		%a{:href => "#{@show.url}"} 
 			website

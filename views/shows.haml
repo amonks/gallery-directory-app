@@ -2,4 +2,5 @@
 %ul 
 - @shows.each do |show|
 	- @show = show
-	= haml :show
+	%li 
+		= haml :show
