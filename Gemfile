@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
 gem 'sinatra'
+gem 'haml'
 
 gem 'json'
 gem 'data_mapper'
+
+gem 'icalendar'
+gem 'chronic'
 
 # When developing an app locally you can use SQLite which is a relational
 # database stored in a file. It's easy to set up and just fine for most

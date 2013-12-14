@@ -7,15 +7,15 @@
     $(document).ready(function () {
       // Load THINGS data immediately
       $.ajax({
-        url: '/things',
+        url: '/galleries',
         method: 'GET'
       }).done(function (data) {
         data.forEach(function (d) {
-          $('#things-index').append("<p><strong>" + d.title + "</strong>: " + d.description + "</p>");
+          $('#galleries-index').append("<p><a href='#" + d.gallery_id + "'>" + d.title + "</a></strong></p>");
         });
       });
 
-      // Form to create a new Thing
+      // Form to create a new gallery
       $('#new-submit').click(function () {
         var data = {};
 
@@ -24,27 +24,27 @@
         data.description = $('#new-description').val();
 
         $.ajax({
-          url: '/things',
+          url: '/galleries',
           method: 'POST',
           data: data
         }).done(function (response) {
           console.log(response);
         });
 
-        // Prevent the form from being submitted.
+        // Prgallery the form from being submitted.
         return false;
       });
     });
   </script>
 </head>
 <body>
-  <div id="things-index">
-    <h2>All Things</h2>
+  <div id="galleries-index">
+    <h2>All galleries</h2>
   </div>
 
 
-  <h2>New Thing</h2>
-  <form id="new-thing">
+  <h2>New gallery</h2>
+  <form id="new-gallery">
     <p><strong>Title:</strong></p>
     <input id="new-title" name="title" type="text">
 

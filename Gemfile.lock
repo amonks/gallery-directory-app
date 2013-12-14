@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.2.8)
     bcrypt-ruby (3.0.1)
+    chronic (0.10.2)
     data_mapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
@@ -57,6 +58,9 @@ GEM
     do_sqlite3 (0.10.12)
       data_objects (= 0.10.12)
     fastercsv (1.5.5)
+    haml (4.0.4)
+      tilt
+    icalendar (1.5.0)
     json (1.7.7)
     json_pure (1.7.7)
     multi_json (1.6.1)
@@ -75,8 +79,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chronic
   data_mapper
   dm-postgres-adapter
   dm-sqlite-adapter
+  haml
+  icalendar
   json
   sinatra
