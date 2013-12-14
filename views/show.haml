@@ -17,6 +17,7 @@
 	%input{:type => "artist", :name=>"artist", :id=>"update-artist", :value => "#{@show.artist}"}
 	%h4 url
 	%input{:type => "text", :name=>"url", :id=>"update-url", :value=>"#{@show.url}"}
+	%h4 submit
 	%input{:type => "submit", :id=> "new-submit"}
 :javascript
 	$(document).ready(function () {
@@ -36,7 +37,7 @@
 
 			$.ajax({
 				url: '/shows/' + showid,
-				method: 'PUT',
+				type: 'PUT',
 				data: data
 			}).done(function (response) {
 				console.log(response);
