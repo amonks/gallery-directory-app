@@ -1,8 +1,9 @@
 %form#update-gallery 
 	%h3 title
+	%input{:type => "text", :name=>"title", :id=>"update-title", :value=> "#{@show.title}"}
 	%h4 gallery
 	%a{:href => "/galleries/#{@show.gallery_gallery_id}/html"} 
-		= Gallery.get(@show.gallery_gallery_id).title%input{:type => "text", :name=>"title", :id=>"update-title", :value=> "#{@show.title}"}
+		= Gallery.get(@show.gallery_gallery_id).title
 	%h4 start date
 	%input{:type => "text", :name=>"startdate", :id=>"update-startdate", :value => "#{@show.startdate}"}
 	%h4 end date
