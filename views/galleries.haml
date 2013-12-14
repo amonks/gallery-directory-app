@@ -1,0 +1,9 @@
+%h1 galleries
+%ul 
+- @galleries.each do |gallery|
+	%li 
+		%a{:href => "/galleries/#{gallery.gallery_id}/html"} 
+			= gallery.title
+%h2 ical calendar
+%a{:href => "/shows/ics"} 
+	link
