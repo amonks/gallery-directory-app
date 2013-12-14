@@ -155,7 +155,7 @@ get '/galleries/:gallery_id/html' do
 end
 
 # UPDATE: Route to update a Gallery
-put '/galleries/:gallery_id' do
+post '/galleries/:gallery_id' do
   content_type :json
 
   # These next commented lines are for if you are using Backbone.js
@@ -260,7 +260,7 @@ get '/shows/:show_id/html' do
 end
 
 # UPDATE: Route to update a Show
-put '/shows/:show_id' do
+post '/shows/:show_id' do
   content_type :json
 
   # These next commented lines are for if you are using Backbone.js
