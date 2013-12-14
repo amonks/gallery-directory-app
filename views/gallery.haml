@@ -1,6 +1,4 @@
-%h3
-	= @gallery.title
-%h4 info
+%h3 info
 %dl 
 	%dt address
 	%dd 
@@ -23,6 +21,6 @@
 	%dt accessibility
 	%dd 
 		= @gallery.accessibility
-%h4 shows
+%h3 shows
 - @shows = Show.all(:gallery_gallery_id => @gallery.gallery_id)
 = haml :shows

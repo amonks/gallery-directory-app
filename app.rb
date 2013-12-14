@@ -121,7 +121,7 @@ get '/galleries/:gallery_id/shows/html' do
 end
 
 # READ: Route to show shows from a specific Gallery based on its `id`
-get '/galleries/:gallery_id/shows/ics' do
+get '/galleries/:gallery_id/ics' do
   content_type :json
   @gallery = Gallery.get(params[:gallery_id].to_i)
   if @gallery
