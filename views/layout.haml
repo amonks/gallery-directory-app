@@ -21,7 +21,8 @@
   %body
     .container
       .row.page-header
-        %h1 chicago art events directory
+        %h1 
+          chicago art events directory
           %small
             = @title
       .row
@@ -30,4 +31,6 @@
           %p 
             other links woo
         #main.content.col-md-9
+          %h2 
+            = title
           = yield
