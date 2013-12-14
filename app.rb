@@ -72,6 +72,7 @@ end
 # Route to show all Galleries, ordered like a blog
 get '/galleries/html' do
   @galleries = Gallery.all(:order => :title)
+  @title = "Galleries"
   haml :galleries
 end
 
@@ -112,6 +113,7 @@ get '/galleries/:gallery_id/shows/html' do
   @gallery = Gallery.get(params[:gallery_id].to_i)
   if @gallery
     @shows = Show.all(:gallery_gallery_id => @gallery.gallery_id)
+    @title = @gallery.title + " shows"
     haml :shows
   else
     halt 404
@@ -145,6 +147,7 @@ end
 get '/galleries/:gallery_id/html' do
   @gallery = Gallery.get(params[:gallery_id].to_i)
   if @gallery
+    @title = @gallery.title
     haml :gallery
   else
     halt 404
@@ -198,6 +201,7 @@ end
 # Route to show all Shows, ordered like a blog
 get '/shows/html' do
   @shows = Show.all(:order => :show_id)
+  @title = "all shows"
   haml :shows
 end
 
@@ -248,6 +252,7 @@ get '/shows/:show_id/html' do
   @show = Show.get(params[:show_id].to_i)
   puts params[:show_id]
   if @show
+    @title = @show.title
     haml :show
   else
     halt 404
