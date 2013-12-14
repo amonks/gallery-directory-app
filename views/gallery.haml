@@ -1,6 +1,6 @@
-%h1
+%h3
 	= @gallery.title
-%h2 info
+%h4 info
 %dl 
 	%dt address
 	%dd 
@@ -25,6 +25,3 @@
 		= @gallery.accessibility
 - @shows = Show.all(:gallery_gallery_id => @gallery.gallery_id)
 = haml :shows
-%h2 ical calendar
-%a{:href => "shows/ics"} 
-	link
